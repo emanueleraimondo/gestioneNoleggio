@@ -1,0 +1,18 @@
+<p>
+  registrazione works!
+</p>
+<form action="registrazione">
+  <input type="text" name="name" #name>nome
+  <br>
+  <br>
+  <input type="text" name="surname" #surname> cognome
+  <br>
+  <br>
+  <input type="text" name="email" #email>email
+  <br><br>
+  <input type="text" name="username" #username> username
+  <br><br>
+  <input type="password" name="password" #password>password
+  <br><br>
+ <button (click)="onAddUser(name,surname,email,username,password)">registrati</button>
+</form>
