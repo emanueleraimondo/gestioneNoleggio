@@ -1,15 +1,19 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <form action="home">
 
 
-<button name="reg">registati</button>
+<button (click)="onChange()">registrati</button>
+<button (click)="onChange1()">login</button>
 
 
-<button name="log">login</button>
 
 
-
+<div *ngIf="visReg">
 <app-registrazione></app-registrazione>
-<app-login></app-login>
+</div>
 
+<div *ngIf="visLog">
+<app-login></app-login>
+</div>
 </form>
 
