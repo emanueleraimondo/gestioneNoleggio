@@ -14,6 +14,15 @@ export class RegistrazioneComponent implements OnInit {
 
   constructor(public http: HttpClient) { }
 
+  onAddUser(name:HTMLInputElement,surname:HTMLInputElement,email:HTMLInputElement,username:HTMLInputElement,password:HTMLInputElement,password2:HTMLInputElement){
+      if(password.value==password2.value){
+        alert("accesso effettuato");
+      }else{
+        alert("le password non corrispondono");
+      }
+
+  }
+
   makeCompactRequest(): void {
     this.loading = true;
     this.http
@@ -23,6 +32,7 @@ export class RegistrazioneComponent implements OnInit {
         this.loading = false;
       });
   }
+
 
 
   ngOnInit() {
