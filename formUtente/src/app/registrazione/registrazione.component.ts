@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http'; //HTTP Client
 import { Observable } from 'rxjs';
 @Component({
   selector: 'app-registrazione',
@@ -15,22 +15,44 @@ export class RegistrazioneComponent implements OnInit {
   constructor(public http: HttpClient) { }
 
   onAddUser(name:HTMLInputElement,surname:HTMLInputElement,email:HTMLInputElement,username:HTMLInputElement,password:HTMLInputElement,password2:HTMLInputElement){
-      if(password.value==password2.value){
-        alert("accesso effettuato");
-      }else{
+      if(password.value!=password2.value){
         alert("le password non corrispondono");
+      }else{
+        
       }
 
   }
 
-  makeCompactRequest(): void {
-    this.loading = true;
-    this.http
-      .get('https://jsonplaceholder.typicode.com/posts/1')
-      .subscribe(data => {
-        this.data = data;
-        this.loading = false;
-      });
+  AddUserP(username:string, nome:string , cognome:string , email:string, password:string, data:string): void {
+
+   const headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded'
+
+    });
+
+ const params = new HttpParams()
+      .set('username', username)
+      .set('nome', nome)
+      .set('cognome', cognome)
+      .set('email', email)
+      .set('password', password)
+      .set('data', data);
+
+      const options = {
+      headers,
+      params,
+      withCredentials: false
+    };
+
+
+
+   this.http.post('https://3000-c58ed4f4-a087-4683-bc1d-2e35d72adad7.ws-eu0.gitpod.io/register',null, options  )
+     .subscribe(data => {
+
+       this.data = data;
+
+        
+
   }
 
 
