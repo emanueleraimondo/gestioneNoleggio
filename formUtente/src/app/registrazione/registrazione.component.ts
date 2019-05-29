@@ -18,7 +18,7 @@ export class RegistrazioneComponent implements OnInit {
       if(password.value!=password2.value){
         alert("le password non corrispondono");
       }else{
-        
+
       }
 
   }
@@ -51,13 +51,15 @@ export class RegistrazioneComponent implements OnInit {
 
        this.data = data;
 
-        
 
+
+  });
   }
 
 
 
   ngOnInit() {
   }
+
 
 }
