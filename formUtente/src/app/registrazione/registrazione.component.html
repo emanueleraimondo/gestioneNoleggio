@@ -1,7 +1,7 @@
 <p>
   registrazione works!
 </p>
-<form action="registrazione">
+
   <input type="text" name="name" #name>nome
   <br>
   <br>
@@ -16,5 +16,6 @@
   <br><br>
   <input type="password" name="password2" #password2>conferma password
   <br><br>
- <button (click)="onAddUser(name,surname,email,username,password,password2)">registrati</button>
-</form>
+   <input type="date" name="dataN" #dataN>
+  <br><br>
+ <button (click)="AddUserP(name,surname,email,username,password,password2,dataN)">registrati</button>

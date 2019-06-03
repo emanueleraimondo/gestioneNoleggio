@@ -23,20 +23,20 @@ export class RegistrazioneComponent implements OnInit {
 
   }
 
-  AddUserP(username:string, nome:string , cognome:string , email:string, password:string, data:string): void {
-
+  AddUserP(name:HTMLInputElement,surname:HTMLInputElement,email:HTMLInputElement,username:HTMLInputElement,password:HTMLInputElement,password2:HTMLInputElement,dataN:HTMLInputElement): boolean {
+   console.log(username);
    const headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded'
 
     });
 
  const params = new HttpParams()
-      .set('username', username)
-      .set('nome', nome)
-      .set('cognome', cognome)
-      .set('email', email)
-      .set('password', password)
-      .set('data', data);
+      .set('username', username.value)
+      .set('nome', name.value)
+      .set('cognome', surname.value)
+      .set('email', email.value)
+      .set('password', password.value)
+      .set('data', dataN.value);
 
       const options = {
       headers,
@@ -46,7 +46,7 @@ export class RegistrazioneComponent implements OnInit {
 
 
 
-   this.http.post('https://3000-c58ed4f4-a087-4683-bc1d-2e35d72adad7.ws-eu0.gitpod.io/registrazione',null, options  )
+   this.http.post('https://3001-c0654b21-1ead-423f-b360-66caf4b0726d.ws-eu0.gitpod.io/registrazione',null, options  )
      .subscribe(data => {
 
        this.data = data;
@@ -54,6 +54,7 @@ export class RegistrazioneComponent implements OnInit {
 
 
   });
+  return false;
   }
 
 
