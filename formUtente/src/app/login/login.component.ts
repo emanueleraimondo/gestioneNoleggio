@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams   } from '@angular/common/http';
 import { Observable } from 'rxjs';
 @Component({
   selector: 'app-login',
@@ -13,16 +13,34 @@ export class LoginComponent implements OnInit {
   o: Observable<Object>;
 
   constructor(public http: HttpClient) { }
+LogUser(username:string, password:string): void {
 
-  makeCompactRequest(): void {
-    this.loading = true;
-    this.http
-      .get('https://jsonplaceholder.typicode.com/posts/1')
-      .subscribe(data => {
-        this.data = data;
-        this.loading = false;
-      });
-  }
+   const headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded'
+
+    });
+
+    const params = new HttpParams()
+          .set('username', username)
+          .set('password', password);
+
+
+      const options = {
+      headers,
+      params,
+      withCredentials: false
+    };
+
+
+
+   this.http.post('https://3001-c58ed4f4-a087-4683-bc1d-2e35d72adad7.ws-eu0.gitpod.io/login',null, options  )
+     .subscribe(data => {
+
+       this.data = data;
+
+
+
+     });
 
   ngOnInit() {
   }

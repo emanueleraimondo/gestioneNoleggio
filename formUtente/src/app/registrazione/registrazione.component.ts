@@ -46,7 +46,7 @@ export class RegistrazioneComponent implements OnInit {
 
 
 
-   this.http.post('https://3001-c0654b21-1ead-423f-b360-66caf4b0726d.ws-eu0.gitpod.io/registrazione',null, options  )
+   this.http.post('https://3001-b38105fd-43cf-441e-8781-de80025b0e5f.ws-eu0.gitpod.io/registrazione',null, options  )
      .subscribe(data => {
 
        this.data = data;
