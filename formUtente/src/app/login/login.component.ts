@@ -13,16 +13,16 @@ export class LoginComponent implements OnInit {
   o: Observable<Object>;
 
   constructor(public http: HttpClient) { }
-onLogin(username:string, password:string): boolean {
-
+onLogin(username:HTMLInputElement, password:HTMLInputElement): boolean {
+    console.log("pippo");
    const headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded'
 
     });
 
     const params = new HttpParams()
-          .set('username', username)
-          .set('password', password);
+          .set('username', username.value)
+          .set('password', password.value);
 
 
       const options = {
@@ -33,11 +33,12 @@ onLogin(username:string, password:string): boolean {
 
 
 
-   this.http.post('https://3001-c58ed4f4-a087-4683-bc1d-2e35d72adad7.ws-eu0.gitpod.io/login',null, options  )
+   this.http.post('https://3001-b38105fd-43cf-441e-8781-de80025b0e5f.ws-eu0.gitpod.io/login',null, options  )
      .subscribe(data => {
 
        this.data = data;
-
+       alert("login effettuato");
+       console.log(data);
  });
  return false;
 }
