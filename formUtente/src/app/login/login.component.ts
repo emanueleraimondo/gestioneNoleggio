@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   o: Observable<Object>;
 
   constructor(public http: HttpClient) { }
-LogUser(username:string, password:string): void {
+onLogin(username:string, password:string): boolean {
 
    const headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded'
@@ -38,9 +38,9 @@ LogUser(username:string, password:string): void {
 
        this.data = data;
 
-
-
-     });
+ });
+ return false;
+}
 
   ngOnInit() {
   }
